@@ -1,6 +1,38 @@
 <!--pages/category/index.wxml-->
 <view class="container">
+	<!-- 搜索页面 -->
+	<search align="left"></search>
 
-    <search align="left"></search>
-
+	<!-- 内容部分 -->
+	<view class="content">
+		<!-- 左边的菜单 -->
+		<view class="left">
+			<!-- 菜单的子选项 -->
+			<block wx:for="{{50}}" wx:key="index">
+				<view class="menu-item {{current === index ?'active':''}}" bindtap="handleTitle" data-index="{{index}}">
+					{{item}}
+				</view>
+			</block>
+		</view>
+		<!-- 右边的菜单 -->
+		<view class="right">
+			<!-- 子分类 -->
+			<view class="category-list">
+				<block wx:for="{{50}}" wx:key="index">
+					<view class="category-title">
+						/<text>家电</text>/
+					</view>
+					<view class="product-list">
+						<block wx:for="{{50}}" wx:key="index">
+							<!-- 品牌分类列表 -->
+							<navigator url="">
+								<image mode="witdhFix" src="https://api-hmugo-web.itheima.net/full/2fb113b32f7a2b161f5ee4096c319afedc3fd5a1.jpg"></image>
+								<text>{{item}}</text>
+							</navigator>
+						</block>
+					</view>
+				</block>
+			</view>
+		</view>
+	</view>
 </view>

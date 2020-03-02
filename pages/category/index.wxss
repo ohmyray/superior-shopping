@@ -1,1 +1,85 @@
 /* pages/category/index.wxss */
+.content{
+    position: fixed;
+    top: 101rpx;
+    bottom: 0;
+    width: 750rpx;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 左边菜单 */
+.left {
+    width: 200rpx;
+    overflow: auto;
+    background-color: #ededed;
+    flex-shrink: 0;
+}
+.left .menu-item {
+    text-align: center;
+    padding: 20rpx 0;
+    border-bottom:  1px solid #ddd;
+    position: relative;
+}
+
+.active {
+    color: red;
+    background-color: #fff;
+}
+
+.active::before {
+    display: block;
+    content: '';
+    width: 3px;
+    height: 16px;
+    background: red;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-8px);
+}
+
+/* 右边的内容 */
+.right {
+    flex: 1;
+    overflow: auto;
+}
+
+.category-title {
+    text-align: center;
+    padding:20rpx;
+    color: #ccc;
+}
+
+.category-title text {
+    color: #666;
+    margin: 0 20rpx;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.product-list navigator {
+    display: block;
+    width: 33.33%;
+    overflow: hidden;
+    font-size: 12px;
+    padding: 10rpx;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.product-list navigator image {
+    width: 175rpx;
+    height: 130rpx;
+}
+
+.product-list navigator text {
+    display: block;
+    width: 100%;
+    text-align: center;
+    /* background-color: red; */
+}
