@@ -30,6 +30,6 @@
     justify-content: flex-start;
 }
 
-.left {
+.right {
     justify-content: flex-end;
 }

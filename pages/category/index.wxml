@@ -1,2 +1,6 @@
 <!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<view class="container">
+
+    <search align="left"></search>
+
+</view>
