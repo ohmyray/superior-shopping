@@ -2,7 +2,7 @@
 <!-- 搜索框 -->
 <view class="search-box">
 	<view class="search-input {{align}}">
-		<icon type="search" size="18" />
+		<icon class="icon" type="search" size="18" />
 		<text >搜索</text>
 	</view>
 </view>
