@@ -21,3 +21,15 @@
 .search-input icon {
     margin-right: 5px;
 }
+
+.center {
+    justify-content: center;
+}
+
+.left {
+    justify-content: flex-start;
+}
+
+.left {
+    justify-content: flex-end;
+}
