@@ -4,3 +4,54 @@
 .search-bg {
     background-color: #E6E6E6 !important;
 }
+
+.nav {
+    display: flex;
+}
+
+.nav view {
+    flex: 1;
+    text-align: center;
+    line-height: 90rpx;
+    font-size: 28rpx;
+    font-weight: 500;
+    /* background-color: greenyellow; */
+    border-bottom: 1px solid #EFEFEF;
+}
+
+.active{
+    color: #FF2D4A;
+}
+
+.good-item{
+    height: 260rpx;
+    border-bottom: 1px solid #EFEFEF;
+    display: flex;
+}
+
+.good-item .good-img image{
+    width: 260rpx;
+}
+
+.good-item .good-desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25rpx 10rpx;
+}
+
+.good-item .title {
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2; 
+}
+
+.good-item .price {
+    color: #FF2D4A;
+    font-size: 36rpx;
+}
+.good-item .price text {
+    font-size: 24rpx;
+}

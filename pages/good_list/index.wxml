@@ -3,10 +3,26 @@
 	<!-- 搜索页面 -->
 	<search align="left" background=".search-bg"></search>
 
-    <view class="good-list">
-        <block wx:for="{{50}}" wx:key="index">
-        <view class="good-item">{{item}}</view>
-        </block>
-    </view>
+	<view class="nav">
+		<view class="active">综合</view>
+		<view>销量</view>
+		<view>价格<icon class="iconfont icon-paixu"></icon>
+		</view>
+	</view>
+
+	<view class="good-list">
+		<block wx:for="{{goodList}}" wx:key="index">
+			<view class="good-item">
+				<view class="good-img">
+					<image mode="widthFix" src="{{item.goods_small_logo}}"></image>
+				</view>
+				<view class="good-desc">
+					<view class="title">{{item.goods_name}}</view>
+					<view class="price">
+					<text>￥ </text>{{899.00}}</view>
+				</view>
+			</view>
+		</block>
+	</view>
 
 </view>
