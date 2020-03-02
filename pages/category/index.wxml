@@ -1,7 +1,7 @@
 <!--pages/category/index.wxml-->
 <view class="container">
 	<!-- 搜索页面 -->
-	<search align="left"></search>
+	<search></search>
 
 	<!-- 内容部分 -->
 	<view class="content">
@@ -25,8 +25,8 @@
 					<view class="product-list">
 						<block wx:for="{{item.children}}" wx:key="index">
 							<!-- 品牌分类列表 -->
-							<navigator url="">
-								<image mode="witdhFix" src="{{item.cat_icon}}"></image>
+							<navigator url="/pages/good_list/index?keyword={{item.cat_name}}">
+								<image mode="scaleToFill" src="{{item.cat_icon}}"></image>
 								<text>{{item.cat_name}}</text>
 							</navigator>
 						</block>
