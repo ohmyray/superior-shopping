@@ -1,4 +1,29 @@
 <!--index.wxml-->
 <view class="container">
-    <search></search>
+
+	<!-- 搜索栏 -->
+	<search></search>
+
+	<!-- 轮播图 -->
+	<swiper class="swiper" indicator-dots circular indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="rgba(255, 255, 255, 1)">
+		<block wx:for="{{[1,2,3]}}" wx:key="index">
+			<swiper-item class="swiper-item">
+				<image mode="scaleToFill" src="https://api-hmugo-web.itheima.net/pyg/banner1.png">
+				</image>
+			</swiper-item>
+		</block>
+	</swiper>
+
+	<!-- 菜单导航 -->
+	<view class="nav-menu">
+		<block wx:for="{{[1,2,3,4]}}">
+			<view class="icon">
+				<image mode="scaleToFill" src="https://api-hmugo-web.itheima.net/pyg/icon_index_nav_4@2x.png"></image>
+			</view>
+		</block>
+	</view>
+
+	<!-- 楼层导航 -->
+	<view></view>
+
 </view>
