@@ -22,5 +22,10 @@ Component({
      */
     methods: {
 
-    }
+    },
+
+    /**
+     * 样式外部
+     */
+    externalClasses: ['background']
 })

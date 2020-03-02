@@ -28,8 +28,10 @@
 
 .left {
     justify-content: flex-start;
+    padding-left: 18rpx;
 }
 
 .right {
     justify-content: flex-end;
+    padding-right: 18rpx;
 }

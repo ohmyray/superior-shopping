@@ -1,18 +1,36 @@
 // pages/good_list/index.js
+import request from "../../utils/request";
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        keyword:''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        // console.log(options); // 拿到页面中的路由传递参数
+        let {keyword} = options
+        this.setData({
+            keyword
+        })
+        this.findGoodList()
+    },
 
+    findGoodList(){
+        request({
+            url: '/goods/qsearch',
+            data: {
+                query: this.data.keyword,   // 关键字
+                // pagesize: 10
+            }
+        }).then(({data: res})=>{
+            console.log(res);
+        })
     },
 
     /**
