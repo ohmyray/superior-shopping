@@ -16,14 +16,67 @@
 
 	<!-- 菜单导航 -->
 	<view class="nav-menu">
-		<block wx:for="{{[1,2,3,4]}}">
-			<view class="icon">
-				<image mode="scaleToFill" src="https://api-hmugo-web.itheima.net/pyg/icon_index_nav_4@2x.png"></image>
-			</view>
+		<block wx:for="{{[1,2,3,4]}}" wx:key="index">
+			<navigator url="">
+				<view class="icon">
+					<image mode="scaleToFill" src="https://api-hmugo-web.itheima.net/pyg/icon_index_nav_4@2x.png"></image>
+				</view>
+			</navigator>
 		</block>
 	</view>
 
 	<!-- 楼层导航 -->
-	<view></view>
+	<view class="foot">
+		<view class="foot-title">
+			<image mode="scaleToFill" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_title.png"></image>
+		</view>
+		<view class="foot-content">
+			<view class="left">
+				<image mode="widthFix" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_1@2x.png"></image>
+			</view>
+			<view class="right">
+				<image mode="widthFix" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+				<image mode="widthFix" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+				<image mode="widthFix" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+				<image mode="widthFix" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+			</view>
+		</view>
+	</view>
+
+	<!-- 楼层导航 -->
+	<view class="foot">
+		<view class="foot-title">
+			<image mode="scaleToFill" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_title.png"></image>
+		</view>
+		<view class="foot-content">
+			<view class="left">
+				<image mode="widthFix" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_1@2x.png"></image>
+			</view>
+			<view class="right">
+				<image mode="widthFix" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+				<image mode="widthFix" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+				<image mode="widthFix" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+				<image mode="widthFix" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+			</view>
+		</view>
+	</view>
+
+	<!-- 楼层导航 -->
+	<view class="foot">
+		<view class="foot-title">
+			<image mode="scaleToFill" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_title.png"></image>
+		</view>
+		<view class="foot-content">
+			<view class="left">
+				<image mode="widthFix" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_1@2x.png"></image>
+			</view>
+			<view class="right">
+				<image mode="widthFix" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+				<image mode="widthFix" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+				<image mode="widthFix" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+				<image mode="widthFix" src="https://api-hmugo-web.itheima.net/pyg/pic_floor01_2@2x.png"></image>
+			</view>
+		</view>
+	</view>
 
 </view>

@@ -14,23 +14,61 @@
     width: 750rpx;
 }
 
+/* 菜单导航 */
 .nav-menu {
     height: 0;
     padding-bottom: 25%;
-    background-color: red;
+    padding-left: 15rpx;
+    margin-bottom: 40rpx;
 }
 
 .nav-menu .icon {
     position: relative;
-    /* background-color: green; */
     float: left;
     width: 25%;
     padding-bottom: 25%;
+    padding-top: 20rpx;
 }
 
 .nav-menu .icon image {
     position: absolute;
     display: block;
+    width: 90%;
+    height: 90%;
+}
+
+/* 楼层 */
+.foot .foot-title {
+    padding-top: 40rpx;
+    background-color: #F5F5F5;
+}
+
+.foot .foot-title image{
+    width: 750rpx;
+    height: 59rpx;
+}
+
+.foot .foot-content{
+    margin: 15rpx;
+    /* background-color: greenyellow; */
+    display: flex;
+}
+
+.foot .foot-content .left{
+    width: 232rpx;
+    flex-shrink:0;
+}
+
+.foot .foot-content .left image{
     width: 100%;
-    height: 100%;
+}
+
+.foot .foot-content .right{
+    flex: 1;
+    float: left;
+}
+
+.foot .foot-content .right image {
+    margin-left: 8rpx;
+    width: 47.5%;
 }
