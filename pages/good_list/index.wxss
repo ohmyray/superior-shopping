@@ -27,6 +27,7 @@
     height: 260rpx;
     border-bottom: 1px solid #EFEFEF;
     display: flex;
+        padding: 25rpx 10rpx;
 }
 
 .good-item .good-img image{
@@ -37,7 +38,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 25rpx 10rpx;
+    padding-left: 10rpx;
 }
 
 .good-item .title {
@@ -54,4 +55,10 @@
 }
 .good-item .price text {
     font-size: 24rpx;
+}
+
+.loading {
+    padding: 20px 0;
+    text-align: center;
+    font-size: 28rpx;
 }

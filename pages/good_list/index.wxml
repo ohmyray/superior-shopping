@@ -25,4 +25,6 @@
 		</block>
 	</view>
 
+	<view class="loading" wx:if="{{true}}">数据加载中...</view>
+
 </view>

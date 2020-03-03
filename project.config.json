@@ -51,9 +51,9 @@
 			"list": [
 				{
 					"id": 0,
-					"name": "pages/good_detail/index",
-					"pathName": "pages/good_detail/index",
-					"query": "",
+					"name": "pages/good_list/index",
+					"pathName": "pages/good_list/index",
+					"query": "keyword=电视",
 					"scene": null
 				}
 			]

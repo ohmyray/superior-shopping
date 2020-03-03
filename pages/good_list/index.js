@@ -30,59 +30,42 @@ Page({
     },
 
     findGoodList() {
-        request({
-            url: "/goods/search",
-            data: {
-                query: this.data.keyword, // 关键字
-                pagenum: this.data.pageNum,
-                pagesize: this.data.pageSize
-            }
-        }).then(({
-            data: res
-        }) => {
+
+        if (!this.data.loading) {
+
             this.setData({
-                total: res.message.total
+                loading: true
             })
-            let goodList = res.message.goods
-                .map(v => {
-                    // 给价格保留两个小数点
-                    v.goods_price = Number(v.goods_price).toFixed(2);
-                    return v
+
+            request({
+                url: "/goods/search",
+                data: {
+                    query: this.data.keyword, // 关键字
+                    pagenum: this.data.pageNum,
+                    pagesize: this.data.pageSize
+                }
+            }).then(({
+                data: res
+            }) => {
+                this.setData({
+                    total: res.message.total
                 })
-            console.log(goodList)
-            this.setData({
-                goodList: goodList,
-                goodsMap: res.message
+                let newGoodList = res.message.goods
+                    .map(v => {
+                        // 给价格保留两个小数点
+                        v.goods_price = Number(v.goods_price).toFixed(2);
+                        return v
+                    })
+
+                let goodList = [...this.data.goodList,...newGoodList]
+                console.log(goodList)
+                this.setData({
+                    goodList: goodList,
+                    goodsMap: res.message,
+                    loading: false
+                })
             })
-        })
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
+        }
     },
 
     /**
@@ -103,12 +86,5 @@ Page({
         })
 
         this.findGoodList()
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
     }
 })
