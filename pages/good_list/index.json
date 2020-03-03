@@ -2,5 +2,6 @@
   "usingComponents": {
     "search": "../../components/search/index"
   },
-  "navigationBarTitleText": "搜索"
+  "navigationBarTitleText": "搜索",
+  "enablePullDownRefresh": true
 }

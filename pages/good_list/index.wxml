@@ -19,12 +19,13 @@
 				<view class="good-desc">
 					<view class="title">{{item.goods_name}}</view>
 					<view class="price">
-					<text>￥ </text>{{899.00}}</view>
+						<text>￥ </text>{{899.00}}</view>
 				</view>
 			</view>
 		</block>
 	</view>
 
-	<view class="loading" wx:if="{{true}}">数据加载中...</view>
+	<view class="status" wx:if="{{isShowTip}}">没有数据</view>
+	<view class="status" wx:if="{{loading}}">数据加载中...</view>
 
 </view>

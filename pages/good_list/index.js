@@ -7,12 +7,12 @@ Page({
      */
     data: {
         keyword: '',
-        goodsMap: [],
         goodList: [],
         pageNum: 1,
         pageSize: 10,
         total: 0,
-        loading: false
+        loading: false,
+        isShowTip: false
     },
 
     /**
@@ -58,10 +58,14 @@ Page({
                     })
 
                 let goodList = [...this.data.goodList,...newGoodList]
-                console.log(goodList)
+                if (!goodList.length) {
+                    this.setData({
+                        isShowTip: true,
+                        loading: false
+                    })
+                }
                 this.setData({
                     goodList: goodList,
-                    goodsMap: res.message,
                     loading: false
                 })
             })
@@ -72,7 +76,16 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+        this.setData({
+            keyword: '',
+            goodList: [],
+            pageNum: 1,
+            pageSize: 10,
+            total: 0,
+            loading: false,
+            isShowTip: false
+        })
+        this.findGoodList()
     },
 
     /**

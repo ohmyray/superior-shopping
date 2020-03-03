@@ -57,7 +57,7 @@
     font-size: 24rpx;
 }
 
-.loading {
+.status {
     padding: 20px 0;
     text-align: center;
     font-size: 28rpx;
