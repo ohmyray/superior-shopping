@@ -1,7 +1,7 @@
 <!--components/search/index.wxml-->
 <!-- 搜索框 -->
 <view class="search-box background">
-	<view class="search-input {{align}}">
+	<view class="search-input {{align}}" bindtap="handleClick">
 		<icon class="icon" type="search" size="18" />
 		<text >搜索</text>
 	</view>

@@ -21,7 +21,11 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
+        handleClick(){
+            wx.navigateTo({
+                url: '/pages/search/index'
+            })
+        }
     },
 
     /**
