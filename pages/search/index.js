@@ -96,7 +96,7 @@ Page({
       })
     })
   },
-  
+
   // 搜索
   bindConfirm() {
     this.findKeywordProduct()
@@ -112,7 +112,7 @@ Page({
     })
 
     wx.redirectTo({
-      url: '/pages/good_list/index?keyword='+this.data.inputValue
+      url: '/pages/good_list/index?keyword=' + this.data.inputValue
     })
   },
 
@@ -122,7 +122,7 @@ Page({
     let id = e.target.dataset.onlyid
     if (id) {
       wx.navigateTo({
-        url: '/pages/good_detail/index?id='+id
+        url: '/pages/good_detail/index?id=' + id
       })
     }
 
@@ -137,13 +137,25 @@ Page({
 
   },
 
-  hanleEmpty(){
+  hanleEmpty() {
     this.setData({
       searchHistory: []
     })
     wx.setStorage({
       key: "searchHistory",
       data: []
+    })
+  },
+
+  goGoodList(e) {
+    const {
+      keyword
+    } = e.target.dataset;
+    console.log(keyword);
+
+
+    wx.redirectTo({
+      url: '/pages/good_list/index?keyword=' + keyword,
     })
   }
 

@@ -17,7 +17,7 @@
 			<icon type="clear" size="20" bindtap="hanleEmpty"></icon>
 		</view>
 		<view>
-			<text class="history-item" wx:for="{{searchHistory}}" wx:key="index">{{item}}</text>
+			<view class="history-item" wx:for="{{searchHistory}}" wx:key="index" bindtap="goGoodList" data-keyword="{{item}}">{{item}}</view>
 		</view>
 	</view>
 </view>
