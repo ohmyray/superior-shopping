@@ -1,5 +1,13 @@
 /* pages/search/index.wxss */
 /* 搜索框 */
+page{
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+  width: 750rpx;
+}
 .search-box {
   height: 65rpx;
   padding: 18rpx;
@@ -8,6 +16,7 @@
 }
 
 .search-input {
+  position: relative;
   height: 100%;
   display: flex;
   align-items: center;
@@ -36,6 +45,29 @@
   font-size: 26rpx;
   color: #060666;
   box-shadow: 0 0 1px 1px #D8D8D8;
+}
+
+.suggest {
+  max-height: 600rpx;
+  overflow: auto;
+  position: absolute;
+  width: 100%;
+  top: 64rpx;
+  left: 0;
+}
+
+.suggest-item {
+  padding: 30rpx 0;
+  border-top: 1px solid #eee;
+  font-size: 25rpx;
+  line-height: 25rpx;
+  text-indent: 30rpx;
+  color: #666;
+  background-color: #fff;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
 }
 
 .past {
