@@ -100,7 +100,7 @@ Page({
   // 搜索
   bindConfirm() {
     this.findKeywordProduct()
-    let history = [...this.data.searchHistory, this.data.inputValue]
+    let history = [...new Set(this.data.searchHistory), this.data.inputValue]
 
     this.setData({
       searchHistory: history
