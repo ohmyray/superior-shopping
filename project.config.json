@@ -62,6 +62,13 @@
 					"pathName": "pages/search/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/good_detail/index",
+					"pathName": "pages/good_detail/index",
+					"query": "id=57384",
+					"scene": null
 				}
 			]
 		}
