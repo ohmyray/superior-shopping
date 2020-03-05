@@ -81,7 +81,6 @@ Page({
     this.findKeywordProduct()
   },
 
-  // 搜索
   findKeywordProduct() {
     request({
       url: '/goods/qsearch',
@@ -97,7 +96,8 @@ Page({
       })
     })
   },
-
+  
+  // 搜索
   bindConfirm() {
     this.findKeywordProduct()
     let history = [...this.data.searchHistory, this.data.inputValue]
@@ -109,6 +109,10 @@ Page({
     wx.setStorage({
       key: "searchHistory",
       data: this.data.searchHistory
+    })
+
+    wx.redirectTo({
+      url: '/pages/good_list/index?keyword='+this.data.inputValue
     })
   },
 

@@ -7,6 +7,10 @@ Component({
         align: {
             type: String,
             value: "center"
+        },
+        keyword: {
+            type: String,
+            value: "搜索"
         }
     },
 
