@@ -1,2 +1,18 @@
-<!--pages/search/index.wxml-->
-<text>pages/search/index.wxml</text>
+<!-- pages/search/index.wxml -->
+<!-- 搜索框 -->
+<view class="search-box">
+  <view class="search-input">
+    <icon class="icon" type="search" size="18" />
+    <input class="search-input" placeholder="输入要搜索的商品" auto-focus search bindfocus="handleSearchFocus" bindinput="bindKeyInput" />
+  </view>
+  <view class="cancel"  bindtap="handleCancel" wx-if="{{!isCancel}}">取消</view>
+</view>
+<view class="past">
+  <view class="history">
+    <view>历史搜索</view>
+    <icon type="clear" size="20"></icon>
+  </view>
+  <view>
+    <text class="history-item">小米</text>
+  </view>
+</view>
