@@ -115,10 +115,10 @@ Page({
   // 搜索建议显示隐藏
   handleShowList(e) {
     // console.log(e.target.dataset.onlyid);
-    let isSuggestList = e.target.dataset.onlyid
-    if (isSuggestList) {
+    let id = e.target.dataset.onlyid
+    if (id) {
       wx.navigateTo({
-        url: '/pages/good_detail/index'
+        url: '/pages/good_detail/index?id='+id
       })
     }
 
