@@ -59,8 +59,14 @@ Page({
                     total: res.message.total
                 })
 
-                let noMore = ((this.data.total-(this.data.pageNum*this.data.pageSize)) < this.data.pageSize) ? true : false;
-                
+                // 判断是否有数据
+                // 若是没有就不显示没有更多，直接显示没有数据
+                let noMore = false;
+                if (this.data.total > 0) {
+                    noMore = ((this.data.total - (this.data.pageNum * this.data.pageSize)) < this.data.pageSize) ? true : false;
+
+                }
+
                 let newGoodList = res.message.goods
                     .map(v => {
                         // 给价格保留两个小数点
@@ -68,7 +74,7 @@ Page({
                         return v
                     })
 
-                let goodList = [...this.data.goodList,...newGoodList]
+                let goodList = [...this.data.goodList, ...newGoodList]
                 if (!goodList.length) {
                     this.setData({
                         isShowTip: true,
