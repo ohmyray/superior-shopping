@@ -27,5 +27,6 @@
 
 	<view class="status" wx:if="{{isShowTip}}">没有数据</view>
 	<view class="status" wx:if="{{loading}}">数据加载中...</view>
+	<view class="status" wx:if="{{noMore}}">没有更多数据啦~</view>
 
 </view>

@@ -12,7 +12,8 @@ Page({
         pageSize: 10,
         total: 0,
         loading: false,
-        isShowTip: false
+        isShowTip: false,
+        noMore: false
     },
 
     /**
@@ -30,6 +31,13 @@ Page({
     },
 
     findGoodList() {
+        // 判断是否有更多数据了
+        if (this.data.noMore) {
+            this.setData({
+                loading: false
+            })
+            return false
+        }
 
         if (!this.data.loading) {
 
@@ -50,6 +58,9 @@ Page({
                 this.setData({
                     total: res.message.total
                 })
+
+                let noMore = ((this.data.total-(this.data.pageNum*this.data.pageSize)) < this.data.pageSize) ? true : false;
+                
                 let newGoodList = res.message.goods
                     .map(v => {
                         // 给价格保留两个小数点
@@ -66,7 +77,8 @@ Page({
                 }
                 this.setData({
                     goodList: goodList,
-                    loading: false
+                    loading: false,
+                    noMore: noMore
                 })
             })
         }
@@ -83,7 +95,8 @@ Page({
             pageSize: 10,
             total: 0,
             loading: false,
-            isShowTip: false
+            isShowTip: false,
+            noMore: false
         })
         this.findGoodList()
     },
