@@ -8,14 +8,18 @@ Page({
   data: {
     isCancel: true,
     inputValue: '',
-    suggestList: []
+    suggestList: [],
+    searchHistory: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let arr = wx.getStorageSync("searchHistory");
+    this.setData({
+      searchHistory: arr
+    })
   },
   // 取消
   handleCancel() {
@@ -30,13 +34,17 @@ Page({
     const {
       value
     } = e.detail;
-    console.log(1);
-    
+
     this.setData({
-      inputValue: value,
-      isCancel: false
+      inputValue: value
     });
-    
+
+    if (this.data.inputValue !== '') {
+      this.setData({
+        isCancel: false
+      })
+    }
+
     if (!value.trim()) {
       this.setData({
         recommend: []
@@ -55,11 +63,16 @@ Page({
       inputValue: value
     });
 
+    if (this.data.inputValue !== '') {
+      console.log(this.data.inputValue);
+      this.setData({
+        isCancel: false
+      })
+    }
 
     if (!value.trim()) {
       this.setData({
-        recommend: [],
-        isCancel: true
+        recommend: []
       });
 
       return;
@@ -82,7 +95,20 @@ Page({
       this.setData({
         suggestList: res.message
       })
+    })
+  },
 
+  bindConfirm() {
+    this.findKeywordProduct()
+    let history = [...this.data.searchHistory, this.data.inputValue]
+
+    this.setData({
+      searchHistory: history
+    })
+
+    wx.setStorage({
+      key: "searchHistory",
+      data: this.data.searchHistory
     })
   },
 
@@ -95,10 +121,26 @@ Page({
         url: '/pages/good_detail/index'
       })
     }
+
+    if (this.data.inputValue === '') {
+      this.setData({
+        isCancel: true
+      })
+    }
     this.setData({
       suggestList: []
     })
 
+  },
+
+  hanleEmpty(){
+    this.setData({
+      searchHistory: []
+    })
+    wx.setStorage({
+      key: "searchHistory",
+      data: []
+    })
   }
 
 })

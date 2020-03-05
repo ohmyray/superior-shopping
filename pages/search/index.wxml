@@ -4,7 +4,7 @@
 	<view class="search-box">
 		<view class="search-input">
 			<icon class="icon" type="search" size="18" />
-			<input class="search-input" placeholder="输入要搜索的商品" search bindfocus="handleSearchFocus" bindinput="bindKeyInput" bindconfirm="findKeywordProduct" value="{{valueInput}}" />
+			<input class="search-input" placeholder="输入要搜索的商品" search bindfocus="handleSearchFocus" bindinput="bindKeyInput" bindconfirm="bindConfirm" value="{{valueInput}}" />
 			<view class="suggest">
 				<view class="suggest-item" wx:for="{{suggestList}}" wx:key="index" data-onlyid="{{item.goods_id}}">{{item.goods_name}}</view>
 			</view>
@@ -14,10 +14,10 @@
 	<view class="past">
 		<view class="history">
 			<view>历史搜索</view>
-			<icon type="clear" size="20"></icon>
+			<icon type="clear" size="20" bindtap="hanleEmpty"></icon>
 		</view>
 		<view>
-			<text class="history-item">小米</text>
+			<text class="history-item" wx:for="{{searchHistory}}" wx:key="index">{{item}}</text>
 		</view>
 	</view>
 </view>
