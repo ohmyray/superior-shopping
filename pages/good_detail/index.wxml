@@ -51,13 +51,13 @@
 			<text>联系客服</text>
 			<button open-type="contact"></button>
 		</view>
-		<view>
+		<view bindtap="handleGoCar">
 			<icon class="iconfont icon-gouwuche"></icon>
 			<text>购物车</text>
 		</view>
 	</view>
 	<view class="right">
-		<view class="car">加入购物车</view>
-		<view>立即购买</view>
+		<view bindtap="handleToCar" data-id="{{detailData.goods_id}}" class="car">加入购物车</view>
+		<view bindtap="handleToOrder" data-id="{{detailData.goods_id}}">立即购买</view>
 	</view>
 </view>

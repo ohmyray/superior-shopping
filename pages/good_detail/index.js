@@ -14,13 +14,16 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let {id} = options;
+        let {
+            id
+        } = options;
         this.findDetail(id);
-        
+
     },
 
 
-    findDetail(id){
+    // 获取当前商品信息
+    findDetail(id) {
         request({
             url: '/goods/detail',
             data: {
@@ -29,22 +32,30 @@ Page({
         }).then(({
             data: res
         }) => {
-            const message =  res.message
+            const message = res.message
             this.setData({
                 detailData: message
             })
         });
     },
 
-    handleTab(e){
+    // tab切换
+    handleTab(e) {
         console.log(e.currentTarget);
-        let { index } = e.currentTarget.dataset;
+        let {
+            index
+        } = e.currentTarget.dataset;
         this.setData({
             current: index
         })
     },
 
-
+    // 跳转到购物车
+    handleGoCar() {
+        wx.switchTab({
+            url: '/pages/cart/index'
+        })
+    },
 
 
 
