@@ -49,6 +49,7 @@
 		<view>
 			<icon class="iconfont icon-kefu"></icon>
 			<text>联系客服</text>
+			<button open-type="contact"></button>
 		</view>
 		<view>
 			<icon class="iconfont icon-gouwuche"></icon>

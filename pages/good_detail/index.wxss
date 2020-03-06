@@ -120,6 +120,13 @@ swiper image {
     justify-content: space-around;
 }
 
+.function .left button {
+    width: 25%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+}
+
 .function .left  view{
     width: 45%;
     background-color: #FFFFFF;
