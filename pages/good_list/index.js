@@ -118,5 +118,15 @@ Page({
         })
 
         this.findGoodList()
+    },
+
+    /**
+     * 页面跳转至商品详情页
+     */
+    handToDetail(e){
+        const { id } = e.currentTarget.dataset;
+        wx.navigateTo({
+           url: '/pages/good_detail/index?id=' + id
+        })
     }
 })

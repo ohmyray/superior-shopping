@@ -12,7 +12,7 @@
 
 	<view class="good-list">
 		<block wx:for="{{goodList}}" wx:key="index">
-			<view class="good-item">
+			<view class="good-item" bindtap="handToDetail" data-id="{{item.goods_id}}">
 				<view class="good-img">
 					<image mode="widthFix" src="{{item.goods_small_logo}}"></image>
 				</view>
