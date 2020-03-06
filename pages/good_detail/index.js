@@ -1,20 +1,56 @@
 // pages/good_detail/index.js
+import request from "../../utils/request";
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        detailData: [],
+        current: 0
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log(options);
+        let {id} = options;
+        this.findDetail(id);
         
     },
+
+
+    findDetail(id){
+        request({
+            url: '/goods/detail',
+            data: {
+                goods_id: id
+            }
+        }).then(({
+            data: res
+        }) => {
+            const message =  res.message
+            this.setData({
+                detailData: message
+            })
+        });
+    },
+
+    handleTab(e){
+        console.log(e.currentTarget);
+        let { index } = e.currentTarget.dataset;
+        this.setData({
+            current: index
+        })
+    },
+
+
+
+
+
+
+
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成

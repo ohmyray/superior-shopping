@@ -64,10 +64,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "pages/good_detail/index",
 					"pathName": "pages/good_detail/index",
-					"query": "id=57384",
+					"query": "id=55620",
 					"scene": null
 				}
 			]

@@ -1,2 +1,62 @@
 <!--pages/good_detail/index.wxml-->
-<text>pages/good_detail/index.wxml</text>
+
+<!-- 商品轮播图 -->
+<swiper class="swiper" indicator-dots circular indicator-color="rgba(255, 255, 255, .3)" indicator-active-color="rgba(255, 255, 255, 1)">
+	<block wx:for="{{detailData.pics}}" wx:key="index">
+		<swiper-item>
+			<image mode="aspectFit" src="{{item.pics_big}}"></image>
+		</swiper-item>
+	</block>
+</swiper>
+
+<!-- 商品描述 -->
+<view class="depict">
+	<view class="price">￥{{detailData.goods_price}}</view>
+	<view class="title">
+		<view class="text">{{detailData.goods_name}}</view>
+		<view class="star">
+			<icon class="iconfont icon-shoucang"></icon>
+			<text>收藏</text>
+		</view>
+	</view>
+	<view class="post">
+		<view class="type">快递:</view>
+		<view>免运费</view>
+	</view>
+</view>
+
+<view class="activity">
+	<view class="type">促销</view>
+	<view>满300减30元</view>
+</view>
+
+<view class="swift">
+	<view class="{{ current === index ? 'active' : '' }}" wx:for="{{ ['详情', '规格'] }}" wx:key="index" bindtap="handleTab" data-index="{{index}}">
+		{{item}}
+	</view>
+</view>
+
+<view class="introduce" wx:if="{{current===0}}">
+	<rich-text nodes="{{detailData.goods_introduce}}"></rich-text>
+</view>
+
+<view class="introduce" wx:if="{{current===1}}">
+
+</view>
+
+<view class="function">
+	<view class="left">
+		<view>
+			<icon class="iconfont icon-kefu"></icon>
+			<text>联系客服</text>
+		</view>
+		<view>
+			<icon class="iconfont icon-gouwuche"></icon>
+			<text>购物车</text>
+		</view>
+	</view>
+	<view class="right">
+		<view class="car">加入购物车</view>
+		<view>立即购买</view>
+	</view>
+</view>
