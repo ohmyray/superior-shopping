@@ -15,7 +15,7 @@ page {
     justify-content: space-between;
     justify-items: center;
     align-items: center;
-    padding: 15rpx 10rpx;
+    padding: 10rpx 10rpx;
 }
 
 .address .arr-right {
@@ -49,13 +49,15 @@ page {
 .logo icon {
     padding-right: 24rpx;
 }
-.product  {
+
+.product {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 15rpx 10rpx;
     border-bottom: 1px solid #eee;
 }
+
 .product image {
     width: 150rpx;
     height: 150rpx;
@@ -72,6 +74,14 @@ page {
 .product .info {
     display: flex;
     justify-content: space-between;
+}
+
+.product .title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: 30rpx;
 }
 
 .product .info .price {
@@ -91,6 +101,7 @@ page {
     text-align: center;
     padding: 10rpx;
 }
+
 .operation view {
     display: inline-block;
     line-height: 50rpx;
@@ -99,6 +110,7 @@ page {
 }
 
 .function {
+    z-index: 9;
     position: fixed;
     height: 100rpx;
     width: 750rpx;
@@ -126,7 +138,7 @@ page {
     color: #bbb;
 }
 
-.function .calc{
+.function .calc {
     height: 100%;
     background-color: #FF2D4A;
     line-height: 100rpx;

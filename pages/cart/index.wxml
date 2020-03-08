@@ -19,24 +19,25 @@
 		<text>优购生活馆</text>
 	</view>
 
-	<view class="product">
-		<icon type="success" color="red"></icon>
-		<view class="left">
-			<image mode="aspectFit" src="https://api-hmugo-web.itheima.net/full/abf2d7438657868095850064e3179ead587e86fb.jpg"></image>
-		</view>
-		<view class="right">
-			<view class="title">商品标题商品标题商品标题商品标题</view>
-			<view class="info">
-				<text class="price">￥279.00</text>
-				<view class="operation">
-					<view>-</view>
-					<input value="1"></input>
-					<view>+</view>
+	<block wx:for="{{cartList}}" wx:key="index">
+		<view class="product">
+			<icon type="success" color="{{item.select?'red':'gray'}}"></icon>
+			<view class="left">
+				<image mode="aspectFit" src="{{item.image}}"></image>
+			</view>
+			<view class="right">
+				<view class="title" bindtap="handleGoDetail" data-id="{{item.goods_id}}">{{item.goods_name}}</view>
+				<view class="info">
+					<text class="price">￥{{item.goods_price}}.00</text>
+					<view class="operation">
+						<view>-</view>
+						<input value="{{item.number}}"></input>
+						<view>+</view>
+					</view>
 				</view>
 			</view>
 		</view>
-	</view>
-
+	</block>
 </view>
 
 <view class="function">
