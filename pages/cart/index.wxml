@@ -1,2 +1,54 @@
 <!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view class="address">
+	<view>
+		<text>收货人：苏</text>
+		<view>
+			<view>13535337057 <text class="arr-right"></text></view>
+		</view>
+
+	</view>
+	<view>
+		<text>收货地址：广东省广州市天河区珠吉</text>
+	</view>
+	<image src="../../images/cart_border@2x.png"></image>
+</view>
+
+<view class="store">
+	<view class="logo">
+		<icon class="iconfont icon-dianpu"></icon>
+		<text>优购生活馆</text>
+	</view>
+
+	<view class="product">
+		<icon type="success" color="red"></icon>
+		<view class="left">
+			<image mode="aspectFit" src="https://api-hmugo-web.itheima.net/full/abf2d7438657868095850064e3179ead587e86fb.jpg"></image>
+		</view>
+		<view class="right">
+			<view class="title">商品标题商品标题商品标题商品标题</view>
+			<view class="info">
+				<text class="price">￥279.00</text>
+				<view class="operation">
+					<view>-</view>
+					<input value="1"></input>
+					<view>+</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+</view>
+
+<view class="function">
+	<view class="select-all">
+		<icon type="success" color="red"></icon>
+		<view>全选</view>
+	</view>
+	<view>
+		<view class="sum-price">合计：<text>￥14110.00</text></view>
+		<view class="post">包含运费</view>
+	</view>
+	<view class="calc">
+		结算(3)
+	</view>
+</view>

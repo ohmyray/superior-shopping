@@ -1,1 +1,136 @@
 /* pages/cart/index.wxss */
+page {
+    height: 100%;
+    background-color: #F5F5F5;
+    font-size: 32rpx;
+}
+
+.address {
+    margin-bottom: 18rpx;
+    background-color: #fff;
+}
+
+.address view {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    padding: 15rpx 10rpx;
+}
+
+.address .arr-right {
+    margin-left: 30rpx;
+    border-right: 2px solid #aaa;
+    border-top: 2px solid #aaa;
+    height: 10rpx;
+    width: 10rpx;
+    transform: rotate(deg);
+    -webkit-transform: rotate(45deg);
+    /*不加这两个属性三角会比上一个略丑, 大家可以试一下*/
+    border-left: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+}
+
+.address image {
+    width: 750rpx;
+    height: 10rpx;
+}
+
+.store {
+    background-color: #fff;
+    margin-bottom: 200rpx;
+}
+
+.logo {
+    padding: 14rpx 30rpx;
+    border-bottom: 1px solid #eee;
+}
+
+.logo icon {
+    padding-right: 24rpx;
+}
+.product  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15rpx 10rpx;
+    border-bottom: 1px solid #eee;
+}
+.product image {
+    width: 150rpx;
+    height: 150rpx;
+    padding: 0 10rpx;
+}
+
+.product .right {
+    height: 150rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.product .info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product .info .price {
+    color: #FF2D4A;
+}
+
+.operation {
+    height: 50rpx;
+    line-height: 50rpx;
+    display: flex;
+    align-items: center;
+}
+
+.operation input {
+    display: inline-block;
+    width: 50rpx;
+    text-align: center;
+    padding: 10rpx;
+}
+.operation view {
+    display: inline-block;
+    line-height: 50rpx;
+    padding: 0 20rpx;
+    border: 2px solid #8F8F8F;
+}
+
+.function {
+    position: fixed;
+    height: 100rpx;
+    width: 750rpx;
+    bottom: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.function .select-all {
+    display: flex;
+}
+
+.function .select-all icon {
+    padding: 0 10rpx;
+}
+
+.function .sum-price text {
+    color: #FF2D4A;
+}
+
+.function .post {
+    font-size: 28rpx;
+    color: #bbb;
+}
+
+.function .calc{
+    height: 100%;
+    background-color: #FF2D4A;
+    line-height: 100rpx;
+    text-align: center;
+    padding: 0 60rpx;
+    color: #fff;
+}
