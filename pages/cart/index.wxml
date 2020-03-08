@@ -46,7 +46,7 @@
 		<view>全选</view>
 	</view>
 	<view>
-		<view class="sum-price">合计：<text>￥14110.00</text></view>
+		<view class="sum-price">合计：<text>￥{{totalPrice}}.00</text></view>
 		<view class="post">包含运费</view>
 	</view>
 	<view class="calc">

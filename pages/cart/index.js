@@ -6,7 +6,8 @@ Page({
      */
     data: {
         cartList: [],
-        cartNumber: 0
+        cartNumber: 0,
+        totalPrice: 0
     },
 
     /**
@@ -28,6 +29,9 @@ Page({
             cartList,
             cartNumber
         })
+
+        // 计算价格
+        this.handleTotalPrice()
     },
 
     // 从购物车去对应商品详情
@@ -51,6 +55,24 @@ Page({
         this.setData({
             cartList: this.data.cartList
         })
+
+        this.handleTotalPrice();
+    },
+
+    // 计算总价格
+    handleTotalPrice() {
+        let totalPrice = 0;
+        this.data.cartList.forEach(item => {
+            if (item.select) {
+                totalPrice += item.goods_price * item.number;
+            }
+        })
+
+        this.setData({
+            totalPrice
+        })
+        
+        wx.setStorageSync('cart', this.data.cartList);
     },
 
 
