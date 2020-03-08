@@ -137,6 +137,17 @@ swiper image {
     color: #8C8C8C;
 }
 
+.function .left .number {
+    position: absolute;
+    background-color: red;
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 50%;
+    top: 10rpx;
+    left: 300rpx;
+    color: #fff;
+}
+
 .function .right{
     background-color: #FFB517;
     font-size: 28rpx;

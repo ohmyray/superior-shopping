@@ -7,8 +7,10 @@ Page({
      */
     data: {
         detailData: [],
+        picUrls: [],
         current: 0,
-        cartList: []
+        cartList: [],
+        cartNumber: 0
     },
 
     /**
@@ -27,11 +29,23 @@ Page({
         wx.getStorage({
             key: 'cart',
             success(res) {
+
+                let number = 0;
+                _that.data.cartList.filter(item => {
+                    number += item.number
+                    return number
+                })
+
+                console.log(number);
+
+
                 _that.setData({
-                    cartList: res.data
+                    cartList: res.data,
+                    cartNumber: number
                 })
             }
         })
+
     },
 
 
@@ -45,9 +59,16 @@ Page({
         }).then(({
             data: res
         }) => {
-            const message = res.message
+            const message = res.message;
+            const pics= message.pics;
+            // 图片预览
+            let picUrls = pics.map(item=> {
+                return item.pics_big_url;
+            })
+            
             this.setData({
-                detailData: message
+                detailData: message,
+                picUrls
             })
         });
     },
@@ -84,7 +105,7 @@ Page({
             if (flag) {
                 item.number += 1;
                 wx.showToast({
-                    title: '数量+1',
+                    title: '商品数量加一',
                     icon: 'success'
                 })
             }
@@ -122,8 +143,17 @@ Page({
 
     },
 
+    handlePreview(e) {
+        // 获取当前点击的图片的索引值
+        const {
+            index
+        } = e.currentTarget.dataset;
 
-
+        wx.previewImage({
+            current: this.data.picUrls[index],
+            urls: this.data.picUrls 
+        })
+    },
 
 
 
