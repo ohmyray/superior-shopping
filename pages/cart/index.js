@@ -40,7 +40,7 @@ Page({
         })
     },
 
-    // 处理是否选择
+    // 处理选择
     handleSelect(e) {
         // 当前点击的商品索引
         let {
@@ -51,11 +51,20 @@ Page({
         this.setData({
             cartList: this.data.cartList
         })
+
+        const flag = this.data.cartList.some(item => {
+            return item.select === false;
+        })
+        
         this.handleTotalNumber();
         this.handleTotalPrice();
+        this.setData({
+            totalSelect: !flag
+
+        })
     },
 
-    // 处理是否全选
+    // 处理全选
     handleSelectAll() {
         let flag = this.data.totalSelect;
         this.data.cartList.forEach(item => {
