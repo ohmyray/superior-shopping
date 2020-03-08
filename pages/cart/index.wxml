@@ -41,8 +41,8 @@
 </view>
 
 <view class="function">
-	<view class="select-all">
-		<icon type="success" color="red"></icon>
+	<view class="select-all" bindtap="handleSelectAll">
+		<icon type="success" color="{{totalSelect? 'red':'gray'}}"></icon>
 		<view>全选</view>
 	</view>
 	<view>
@@ -50,6 +50,6 @@
 		<view class="post">包含运费</view>
 	</view>
 	<view class="calc">
-		结算(3)
+		结算({{totalNumber}})
 	</view>
 </view>

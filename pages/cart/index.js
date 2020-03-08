@@ -6,8 +6,9 @@ Page({
      */
     data: {
         cartList: [],
-        cartNumber: 0,
-        totalPrice: 0
+        totalNumber: 0,
+        totalPrice: 0,
+        totalSelect: true
     },
 
     /**
@@ -20,17 +21,12 @@ Page({
     // 获取购物车数据
     getCart() {
         let cartList = wx.getStorageSync('cart') || [];
-        let cartNumber = 0;
-        cartList.map(item => {
-            cartNumber += item.number
-            return cartNumber
-        })
         this.setData({
             cartList,
-            cartNumber
         })
 
-        // 计算价格
+        // 计算
+        this.handleTotalNumber();
         this.handleTotalPrice()
     },
 
@@ -55,8 +51,22 @@ Page({
         this.setData({
             cartList: this.data.cartList
         })
-
+        this.handleTotalNumber();
         this.handleTotalPrice();
+    },
+
+    // 处理是否全选
+    handleSelectAll() {
+        let flag = this.data.totalSelect;
+        this.data.cartList.forEach(item => {
+            item.select = !flag;
+        })
+        this.setData({
+            cartList: this.data.cartList,
+            totalSelect: !flag
+        })
+        this.handleTotalPrice();
+        this.handleTotalNumber();
     },
 
     // 计算总价格
@@ -71,10 +81,25 @@ Page({
         this.setData({
             totalPrice
         })
-        
+
         wx.setStorageSync('cart', this.data.cartList);
     },
 
+    // 计算总数
+    handleTotalNumber() {
+        let totalNumber = 0;
+        this.data.cartList.forEach(item => {
+            if (item.select) {
+                totalNumber += item.number;
+            }
+        })
+
+        this.setData({
+            totalNumber
+        })
+
+        wx.setStorageSync('cart', this.data.cartList);
+    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
