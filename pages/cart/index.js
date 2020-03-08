@@ -31,13 +31,28 @@ Page({
     },
 
     // 从购物车去对应商品详情
-    handleGoDetail(e){
-        const {id} = e.currentTarget.dataset;
+    handleGoDetail(e) {
+        const {
+            id
+        } = e.currentTarget.dataset;
         wx.navigateTo({
-           url: '/pages/good_detail/index?id=' + id
+            url: '/pages/good_detail/index?id=' + id
         })
     },
-    
+
+    // 处理是否选择
+    handleSelect(e) {
+        // 当前点击的商品索引
+        let {
+            index
+        } = e.currentTarget.dataset;
+        console.log(index);
+        this.data.cartList[index].select = !this.data.cartList[index].select;
+        this.setData({
+            cartList: this.data.cartList
+        })
+    },
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成

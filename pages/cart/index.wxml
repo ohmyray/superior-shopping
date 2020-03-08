@@ -21,7 +21,7 @@
 
 	<block wx:for="{{cartList}}" wx:key="index">
 		<view class="product">
-			<icon type="success" color="{{item.select?'red':'gray'}}"></icon>
+			<icon type="success" color="{{item.select?'red':'gray'}}" bindtap="handleSelect" data-index="{{index}}"></icon>
 			<view class="left">
 				<image mode="aspectFit" src="{{item.image}}"></image>
 			</view>
