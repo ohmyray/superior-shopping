@@ -20,32 +20,22 @@ Page({
         let {
             id
         } = options;
-        this.findDetail(id);
         this.getCart()
+        this.findDetail(id);
     },
 
     getCart() {
         let _that = this;
-        wx.getStorage({
-            key: 'cart',
-            success(res) {
-
-                let number = 0;
-                _that.data.cartList.filter(item => {
-                    number += item.number
-                    return number
-                })
-
-                console.log(number);
-
-
-                _that.setData({
-                    cartList: res.data,
-                    cartNumber: number
-                })
-            }
+        let cartList = wx.getStorageSync('cart') || [];
+        let cartNumber = 0;
+        cartList.map(item => {
+            cartNumber += item.number
+            return cartNumber
         })
-
+        _that.setData({
+            cartList,
+            cartNumber
+        })
     },
 
 
@@ -60,12 +50,12 @@ Page({
             data: res
         }) => {
             const message = res.message;
-            const pics= message.pics;
+            const pics = message.pics;
             // 图片预览
-            let picUrls = pics.map(item=> {
+            let picUrls = pics.map(item => {
                 return item.pics_big_url;
             })
-            
+
             this.setData({
                 detailData: message,
                 picUrls
@@ -134,7 +124,8 @@ Page({
         }
 
         this.setData({
-            cartList
+            cartList,
+            cartNumber: this.data.cartNumber + 1
         })
         wx.setStorage({
             key: "cart",
@@ -151,7 +142,7 @@ Page({
 
         wx.previewImage({
             current: this.data.picUrls[index],
-            urls: this.data.picUrls 
+            urls: this.data.picUrls
         })
     },
 
