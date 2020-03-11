@@ -8,7 +8,8 @@ Page({
         cartList: [],
         totalNumber: 0,
         totalPrice: 0,
-        totalSelect: true
+        totalSelect: true,
+        userInfo: {}
     },
 
     /**
@@ -16,6 +17,16 @@ Page({
      */
     onLoad: function (options) {
         this.getCart(); // 获取购物车数据
+
+    },
+
+    handleGetAddress() {
+            let _that = this;
+            wx.chooseAddress({
+                success(res) {
+                    wx.setStorageSync('userInfo', res);
+                }     
+            })
     },
 
     // 获取购物车数据
@@ -28,6 +39,25 @@ Page({
         // 计算
         this.handleTotalNumber();
         this.handleTotalPrice()
+    },
+
+    handleSubmitOrder(){
+       let cartOrder =  this.data.cartList.filter(item=> {
+            return item.select
+        })
+
+        if (cartOrder.length === 0) {
+            wx.showToast({
+              title: '选择您所需的商品哟~',
+              icon: 'none',
+              duration: 2000
+            })
+            return;
+        }
+        console.log(this.data.cartList);
+        console.log(cartOrder);
+        
+        
     },
 
     // 从购物车去对应商品详情
@@ -55,12 +85,11 @@ Page({
         const flag = this.data.cartList.some(item => {
             return item.select === false;
         })
-        
+
         this.handleTotalNumber();
         this.handleTotalPrice();
         this.setData({
             totalSelect: !flag
-
         })
     },
 
@@ -110,6 +139,50 @@ Page({
         wx.setStorageSync('cart', this.data.cartList);
     },
 
+    //添加移除商品
+    handleSubAndAdd(e) {
+        let {
+            index,
+            num
+        } = e.currentTarget.dataset;
+        console.log(num);
+
+        if (this.data.cartList[index].number === 1 && Number(num) === -1) {
+            let _that = this;
+            wx.showModal({
+                title: '提示',
+                content: '点击确定移除该商品',
+                success(res) {
+                    if (res.confirm) {
+                        _that.data.cartList[index].number = _that.data.cartList[index].number += Number(num);
+                        // 从购物车数据中移除该项目
+                        _that.data.cartList.splice(index, 1)
+                        console.log(_that.data.cartList);
+                        _that.SaveCartList();
+                    } else if (res.cancel) {
+                        // 咱们啥也不用做
+                    }
+                }
+            })
+            return;
+        } else {
+            this.data.cartList[index].number += num;
+        }
+        // 保存数据状态
+        this.SaveCartList();
+        this.handleTotalNumber();
+        this.handleTotalPrice();
+    },
+
+    // 保存数据复用
+    SaveCartList() {
+        this.setData({
+            cartList: this.data.cartList
+        })
+        // console.log(this.data.cartList);
+        wx.setStorageSync('cart', this.data.cartList);
+    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -122,6 +195,11 @@ Page({
      */
     onShow: function () {
         this.getCart(); // 获取购物车数据
+        let userInfo = wx.getStorageSync('userInfo') || null;
+        // 获取用户信息
+        this.setData({
+            userInfo
+        })
     },
 
     /**

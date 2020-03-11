@@ -146,3 +146,9 @@ page {
     padding: 0 60rpx;
     color: #fff;
 }
+
+.cart-none {
+    display: flex;
+    justify-content: center;
+    padding-top: 50%;
+}

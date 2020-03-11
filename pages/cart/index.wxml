@@ -1,19 +1,30 @@
 <!--pages/cart/index.wxml-->
-<view class="address">
+<view class="address" bindtap="handleGetAddress" wx:if="{{userInfo.userName !== undefined && cartList.length !== 0}}">
 	<view>
-		<text>收货人：苏</text>
+		<text>收货人：{{userInfo.userName}}</text>
 		<view>
-			<view>13535337057 <text class="arr-right"></text></view>
+			<view>{{userInfo.telNumber}} <text class="arr-right"></text></view>
 		</view>
 
 	</view>
 	<view>
-		<text>收货地址：广东省广州市天河区珠吉</text>
+		<text>收货地址：{{userInfo.cityName}}{{userInfo.countyName}}{{userInfo.detailInfo}}</text>
 	</view>
 	<image src="../../images/cart_border@2x.png"></image>
 </view>
 
-<view class="store">
+<view class="address" bindtap="handleGetAddress" wx:if="{{userInfo.userName === undefined && cartList.length !== 0}}">
+	<view>
+		<text>选择收货人及收货地址</text>
+		<view>
+			<view> <text class="arr-right"></text></view>
+		</view>
+
+	</view>
+	<image src="../../images/cart_border@2x.png"></image>
+</view>
+
+<view class="store" wx:if="{{cartList.length !== 0}}">
 	<view class="logo">
 		<icon class="iconfont icon-dianpu"></icon>
 		<text>优购生活馆</text>
@@ -30,9 +41,9 @@
 				<view class="info">
 					<text class="price">￥{{item.goods_price}}.00</text>
 					<view class="operation">
-						<view>-</view>
+						<view bindtap="handleSubAndAdd" data-index="{{index}}" data-num="{{-1}}">-</view>
 						<input value="{{item.number}}"></input>
-						<view>+</view>
+						<view bindtap="handleSubAndAdd" data-index="{{index}}" data-num="{{1}}">+</view>
 					</view>
 				</view>
 			</view>
@@ -40,7 +51,11 @@
 	</block>
 </view>
 
-<view class="function">
+<view class="cart-none" wx:if="{{cartList.length === 0}}">
+	<text>购物车空空如也~</text>
+</view>
+
+<view class="function" wx:if="{{cartList.length !== 0}}">
 	<view class="select-all" bindtap="handleSelectAll">
 		<icon type="success" color="{{totalSelect? 'red':'gray'}}"></icon>
 		<view>全选</view>
@@ -49,7 +64,7 @@
 		<view class="sum-price">合计：<text>￥{{totalPrice}}.00</text></view>
 		<view class="post">包含运费</view>
 	</view>
-	<view class="calc">
+	<view class="calc" bindtap="handleSubmitOrder">
 		结算({{totalNumber}})
 	</view>
 </view>
